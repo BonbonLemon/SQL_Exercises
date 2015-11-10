@@ -222,7 +222,7 @@ def craiglockhart_to_sighthill
     JOIN
       routes b ON (a.company = b.company AND a.num = b.num)
     JOIN
-      routes c ON (c.stop_id != b.company AND c.num != b.num)
+      routes c ON (c.stop_id = b.stop_id)
     JOIN
       routes d ON (d.company = c.company AND d.num = c.num)
     JOIN
@@ -237,7 +237,7 @@ def craiglockhart_to_sighthill
   SQL
 end
 
-# 
+#
 # def craiglockhart_to_sighthill
 #   # Find the routes involving two buses that can go from Craiglockhart to
 #   # Sighthill. Show the bus no. and company for the first bus, the name of the
